@@ -28,4 +28,4 @@ var gulp = require('gulp'),
 
   gulp.task('default', ['lint', 'test']);
   // gulp.task('default', ['lint', 'test', 'style', 'style-fixer']);
-  gulp.watch('./*.js', ['default']);
+  // gulp.watch('./*.js', ['default']);
