@@ -13,17 +13,15 @@ describe('Test transformations', function(){
     expect(createdOffset).to.equal(originalOffset);
   });
 
-  it("Check Header", function(done){
+  it("Check Header", function(){
     for(var i = 0; i < originalOffset; i++){
       expect(created[i]).to.equal(original[i]);
     }
-    done();
   });
 
-  it("Check Body", function(done){
-    for(var i = originalOffset; i < original.legth; i++){
-      expect(0xFF - created[i]).to.eql(original[i]);
+  it("Check Body", function(){
+    for(var i = originalOffset; i < original.length; i++){
+      expect(created[i]).to.equal(0xFF - original[i]);
     }
-    done();
   });
 });
