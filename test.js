@@ -9,17 +9,17 @@ describe('Test transformations', function(){
   var created = fs.readFileSync('testOut.bmp');
   var createdOffset  = created.readUInt16LE(10);
 
-  it("Check Offset", function(){
+  it("Check Offset to image in new file", function(){
     expect(createdOffset).to.equal(originalOffset);
   });
 
-  it("Check Header", function(){
+  it("Check Header bytes not altered", function(){
     for(var i = 0; i < originalOffset; i++){
       expect(created[i]).to.equal(original[i]);
     }
   });
 
-  it("Check Body", function(){
+  it("Check Body pixels transformed as expected", function(){
     for(var i = originalOffset; i < original.length; i++){
       expect(created[i]).to.equal(0xFF - original[i]);
     }
