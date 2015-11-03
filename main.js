@@ -7,9 +7,9 @@ function transform(err, buffer) {
   else {
     var offset = buffer.readUInt16LE(10); // offset to the image in the buffer
     var image = buffer.slice(offset, buffer.length);//get bytes
-    var length = image.length; //reduce lookup time in for loop by assigning length
+    var length = buffer.length; //reduce lookup time in for loop by assigning length
 
-    for(var i = offset; i < buffer.length; i++){
+    for(var i = offset; i < length; i++){
       buffer[i] = 0xFF- buffer[i]; //transform to flip image
     }
   
